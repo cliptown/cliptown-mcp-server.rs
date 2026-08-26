@@ -183,6 +183,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "cliptown-mcp-server"
+version = "0.1.0"
+dependencies = [
+ "ore-mcp-org-server",
+ "tokio",
+]
+
+[[package]]
 name = "core-foundation-sys"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -970,14 +978,6 @@ version = "0.1.0"
 source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=42cd61aae6908a7c587ababd954bcd8a05520d92#42cd61aae6908a7c587ababd954bcd8a05520d92"
 dependencies = [
  "serde_json",
-]
-
-[[package]]
-name = "ore-org-mcp-server"
-version = "0.1.0"
-dependencies = [
- "ore-mcp-org-server",
- "tokio",
 ]
 
 [[package]]

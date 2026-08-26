@@ -1,15 +1,15 @@
 [package]
-org = "oresoftware"
-name = "org-mcp-server-template"
+org = "cliptown"
+name = "cliptown-mcp-server"
 version = "0.1.0"
-description = "Hardened read-only organization MCP diagnostics"
+description = "Hardened read-only MCP diagnostics for the cliptown GitHub organization"
 license = "MIT"
 keywords = ["mcp", "diagnostics", "agents", "global-tool", "rust"]
 language = "rust"
 
 [package.repository]
 vcs = "git"
-url = "https://github.com/ORESoftware/org-mcp-server-template.rs"
+url = "https://github.com/cliptown/cliptown-mcp-server.rs"
 
 [dependencies]
 "oresoftware/mcp-rust-libs" = "^0.1.0"
@@ -20,16 +20,16 @@ url = "https://github.com/ORESoftware/org-mcp-server-template.rs"
 "zed-pkg/zed-cli" = "^0.2.3"
 
 [build]
-command = "cargo build --release --locked --bin org-mcp-server"
-outputs = ["target/release/org-mcp-server"]
+command = "cargo build --release --locked --bin cliptown-mcp-server"
+outputs = ["target/release/cliptown-mcp-server"]
 
 [bin]
-org-mcp-server = "target/release/org-mcp-server"
+cliptown-mcp-server = "target/release/cliptown-mcp-server"
 
 [publish]
 include_readme = true
 tag_format = "v{version}"
-smoke_test = "cargo test --manifest-path \"$ZED_PKG_TEST_TARGET/Cargo.toml\" --all-targets --locked && test -x \"$ZED_PKG_TEST_TARGET/target/release/org-mcp-server\""
+smoke_test = "cargo test --manifest-path \"$ZED_PKG_TEST_TARGET/Cargo.toml\" --all-targets --locked && test -x \"$ZED_PKG_TEST_TARGET/target/release/cliptown-mcp-server\""
 exclude = [".env", ".env.*", ".direnv/**", ".vendor/.zed/**", ".zed/**", ".zpkg.lock", ".zed-pack/**", "env/dec/**", "target/**", "tmp/**", "**/*.log", ".DS_Store"]
 
 [install]

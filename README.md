@@ -1,6 +1,7 @@
-# Organization MCP server
+# cliptown MCP server
 
-This repository is generated from the hardened Rust MCP fleet template. The
+This repository inherits from the hardened Rust MCP fleet template at
+[`ORESoftware/org-mcp-server-template.rs`](https://github.com/ORESoftware/org-mcp-server-template.rs). The
 organization and repository identity are compile-time constants in
 `src/main.rs`; generated repositories replace the template values before their
 first release.

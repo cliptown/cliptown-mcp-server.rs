@@ -74,7 +74,7 @@ jobs:
           PY
       - name: Smoke-test JSON-RPC stdio isolation
         run: |
-          cargo build --locked --bin org-mcp-server
+          cargo build --locked --bin cliptown-mcp-server
           python - <<'PY'
           import json
           import subprocess
@@ -95,7 +95,7 @@ jobs:
           ]
           payload = "".join(json.dumps(message) + "\n" for message in messages)
           process = subprocess.run(
-              ["target/debug/org-mcp-server"],
+              ["target/debug/cliptown-mcp-server"],
               input=payload,
               capture_output=True,
               text=True,

@@ -1,14 +1,14 @@
 [package]
-name = "ore-org-mcp-server"
+name = "cliptown-mcp-server"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.88.0"
 license = "MIT"
-description = "Hardened read-only MCP server for one GitHub organization"
+description = "Hardened read-only MCP server for the cliptown GitHub organization"
 publish = false
 
 [[bin]]
-name = "org-mcp-server"
+name = "cliptown-mcp-server"
 path = "src/main.rs"
 
 [dependencies]
