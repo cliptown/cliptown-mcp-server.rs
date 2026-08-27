@@ -6,6 +6,7 @@ This file is **this repository's** agent contract. The fleet-wide parent lives a
 
 - GitHub: https://github.com/oresoftware/my-ai/AGENTS.md
 - Disk: `~/codes/oresoftware/my-ai/AGENTS.md`
+- `~/codes/AGENTS.md` is a symlink to `~/codes/oresoftware/my-ai/AGENTS.md`
 - Installed by `~/codes/oresoftware/my-ai/setup-final.sh` (not `.md`) as symlinks onto:
   - `~/codes/AGENTS.md`
   - `~/codes/.claude/AGENTS.md` and `~/codes/.claude/CLAUDE.md`
