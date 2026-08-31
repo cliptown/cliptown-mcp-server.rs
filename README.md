@@ -40,7 +40,8 @@ Every provider result has one of five honest states: `ready`, `degraded`,
 never becomes synthetic success.
 
 `ORESoftware/mcp-rust-libs` is pinned to immutable revision
-`046584b6e1138d4d9b141b48a66dca1d510ee52c`. Its organization-server crate pins
+`f470ca5be6389bb20c2291acdfc3a382cb9b39b2`. The server's honest MSRV is Rust
+1.95.0, matching the provider-complete AWS SDK graph. Its organization-server crate pins
 `ores-otel/ores-mcp-server-core-libs.rs` to reviewed revision
 `e559a76f869c2c2d9bf939b510d358a3924abd81` for JSON logs on stderr plus OTLP
 traces, metrics, and logs. MCP protocol frames own stdout.

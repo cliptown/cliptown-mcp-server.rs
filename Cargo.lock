@@ -1942,7 +1942,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-bootstrap"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "ore-mcp-safety",
 ]
@@ -1950,7 +1950,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-http"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "ore-mcp-safety",
  "reqwest",
@@ -1960,7 +1960,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-integrations"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "async-nats",
  "aws-sdk-eks",
@@ -1977,7 +1977,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-org-server"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "async-nats",
  "aws-config",
@@ -2004,7 +2004,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-remote"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "axum",
  "jsonwebtoken",
@@ -2020,7 +2020,7 @@ dependencies = [
 [[package]]
 name = "ore-mcp-runtime"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "ore-mcp-bootstrap",
  "rmcp 2.2.0",
@@ -2030,12 +2030,12 @@ dependencies = [
 [[package]]
 name = "ore-mcp-safety"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 
 [[package]]
 name = "ore-mcp-zed-graph"
 version = "0.1.0"
-source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=046584b6e1138d4d9b141b48a66dca1d510ee52c#046584b6e1138d4d9b141b48a66dca1d510ee52c"
+source = "git+https://github.com/ORESoftware/mcp-rust-libs?rev=f470ca5be6389bb20c2291acdfc3a382cb9b39b2#f470ca5be6389bb20c2291acdfc3a382cb9b39b2"
 dependencies = [
  "serde_json",
 ]
