@@ -21,15 +21,15 @@ exposes 15 no-argument tools:
 - `environment_policy` — SOPS+age ciphertext and ignored-plaintext rules;
 - `security_baseline` — mutation, output-bound, logging, auth, dependency, and
   secret-handling guarantees;
-- `github_repository_read` — the exact Cliptown repository and CI posture;
-- `aws_account_read` — the configured AWS account and bounded EKS inventory;
-- `gcp_project_read` — exact GCP project metadata;
-- `supabase_project_read` — the configured Cliptown Supabase health boundary;
-- `neon_project_read` — exact Neon organization/project metadata;
-- `cloudflare_account_read` — the configured Cliptown zone posture;
-- `k8s_cluster_read` — the exact Cliptown namespace in the
+- `github_posture` — the exact Cliptown repository and CI posture;
+- `aws_posture` — the configured AWS account and bounded EKS inventory;
+- `gcp_posture` — exact GCP project metadata and enabled services;
+- `supabase_posture` — the configured Cliptown Supabase health boundary;
+- `neon_posture` — exact Neon organization/project and branch metadata;
+- `cloudflare_posture` — the configured Cliptown zone and DNS posture;
+- `k8s_posture` — the exact Cliptown namespace in the
   `ORESoftware/k8s-cluster` deployment plane;
-- `nats_service_read` — the Cliptown service and dependency subjects; and
+- `nats_posture` — the Cliptown service and dependency subjects; and
 - `organization_posture` — one bounded, concurrent view of all eight providers.
 
 Three generated resources describe the service catalog, provider catalog, and
