@@ -220,9 +220,11 @@ env-keygen: _env-dec
     echo "add this recipient to .sops.yaml, then ask someone to run \`just env-rekey\`:"
     age-keygen -y "$key"
 
-# Fail-closed audit: no plaintext in git, gitignore intact, ciphertext valid.
+# Fail-closed, key-independent audit: no plaintext in git, gitignore intact,
+# and ciphertext valid. Do not depend on `_env-dec`; CI must be able to audit a
+# fresh checkout without installing a runtime decryptor or creating env/dec.
 [group('env')]
-env-check: _env-dec
+env-check:
     #!/usr/bin/env bash
     set -euo pipefail
     cd {{ justfile_directory() }}
