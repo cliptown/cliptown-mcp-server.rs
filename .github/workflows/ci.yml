@@ -82,6 +82,8 @@ jobs:
           tar -xzf /tmp/just.tar.gz -C /tmp just
           sudo install -m 0755 /tmp/just /usr/local/bin/just
           just env-check
+      - name: Test runtime decryption boundary
+        run: scripts/test-sops-entrypoint.sh
       - name: Smoke-test JSON-RPC stdio isolation
         run: |
           cargo build --locked --bin cliptown-mcp-server
