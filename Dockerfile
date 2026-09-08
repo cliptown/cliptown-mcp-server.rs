@@ -22,7 +22,7 @@
 ############################
 # Stage 1 — build + strip
 ############################
-FROM rust:1.90-bookworm AS build
+FROM rust:1.95-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1 AS build
 ARG TARGETARCH
 WORKDIR /src
 COPY . .
@@ -36,7 +36,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry,id=cargo-registry,sharin
 ############################
 # Stage 2 — slim runtime + sops
 ############################
-FROM debian:bookworm-slim AS runtime
+FROM debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171 AS runtime
 ARG SOPS_ENV=prod
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends ca-certificates \
@@ -44,7 +44,7 @@ RUN apt-get update \
     && find /var/lib/apt/lists -mindepth 1 -delete \
     && useradd --system --uid 65532 --no-create-home --shell /usr/sbin/nologin app
 COPY --from=build "/usr/local/bin/cliptown-mcp-server" "/usr/local/bin/cliptown-mcp-server"
-COPY --from=ghcr.io/getsops/sops:v3.10.2-alpine --chmod=0755 /usr/local/bin/sops /usr/local/bin/sops
+COPY --from=ghcr.io/getsops/sops:v3.10.2-alpine@sha256:c004663671f8443f08bcff4ee2f292468c7ce0faff3098aa3955028cc0d66672 --chmod=0755 /usr/local/bin/sops /usr/local/bin/sops
 COPY --chmod=0755 scripts/sops-entrypoint.sh /usr/local/bin/sops-entrypoint.sh
 # Ciphertext is optional. Bind-mount the repo so a missing env/enc does not
 # fail the build; when present it is renamed to .env so sops can infer dotenv.
@@ -55,6 +55,7 @@ RUN --mount=type=bind,source=.,target=/src,ro \
        fi \
     && chown -R 65532:65532 /app /usr/local/bin/cliptown-mcp-server
 ENV SOPS_SECRETS_FILE=/app/secrets/app.env \
+    SOPS_REQUIRE_KEY=1 \
     OTEL_SERVICE_NAME=cliptown-mcp-server \
     OTEL_EXPORTER_OTLP_ENDPOINT=http://dd-otel-collector.observability.svc.cluster.local:4317 \
     RUST_LOG=info
