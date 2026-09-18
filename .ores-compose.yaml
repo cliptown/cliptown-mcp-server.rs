@@ -1,0 +1,11 @@
+schema_version: ores.compose.v1
+project: cliptown-mcp-server.rs
+allow_lazy_start: false
+
+services:
+  cliptown-mcp-server.rs:
+    name: cliptown-mcp-server.rs
+    runtime: host
+    build:
+      - ["cargo", "build", "--bins"]
+    command: ["./target/debug/cliptown-mcp-server.rs"]
