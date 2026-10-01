@@ -12,6 +12,10 @@ jobs:
   ores-static-observability-ids:
     runs-on: ubuntu-24.04
     steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Validate workflow wiring
         shell: bash
         run: echo "ORES static observability workflow is active"
