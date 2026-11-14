@@ -26,10 +26,47 @@ pub const PROVIDER_OPERATIONS: &[(&str, &[&str])] = &[
     ),
 ];
 
+/// Reject duplicate provider names, empty operation sets, unbounded identifiers,
+/// and any operation that is not an explicit read-only accessor.
+#[must_use]
+pub fn provider_catalog_is_read_only() -> bool {
+    PROVIDER_OPERATIONS.len() == 8
+        && PROVIDER_OPERATIONS
+            .iter()
+            .enumerate()
+            .all(|(index, (provider, operations))| {
+                !provider.is_empty()
+                    && provider.len() <= 64
+                    && provider.bytes().all(|byte| {
+                        byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'_'
+                    })
+                    && !PROVIDER_OPERATIONS[..index]
+                        .iter()
+                        .any(|(name, _)| name == provider)
+                    && !operations.is_empty()
+                    && operations
+                        .iter()
+                        .enumerate()
+                        .all(|(operation_index, operation)| {
+                            operation.starts_with("read_")
+                                && operation.len() <= 64
+                                && operation.bytes().all(|byte| {
+                                    byte.is_ascii_lowercase()
+                                        || byte.is_ascii_digit()
+                                        || byte == b'_'
+                                })
+                                && !operations[..operation_index].contains(operation)
+                        })
+            })
+}
+
 /// Returns the exact organization, repository, service, and Zed dependency identity.
 #[must_use]
 pub fn org_spec() -> OrgSpec {
-    debug_assert_eq!(PROVIDER_OPERATIONS.len(), 8);
+    assert!(
+        provider_catalog_is_read_only(),
+        "provider operation catalog must remain read-only"
+    );
     OrgSpec {
         organization: "cliptown",
         repository: "cliptown/cliptown-mcp-server.rs",
@@ -50,6 +87,7 @@ mod tests {
         assert_eq!(spec.organization, "cliptown");
         assert_eq!(spec.repository, "cliptown/cliptown-mcp-server.rs");
         assert_eq!(PROVIDER_OPERATIONS.len(), 8);
+        assert!(provider_catalog_is_read_only());
         assert!(PROVIDER_OPERATIONS.iter().all(|(provider, operations)| {
             !provider.contains('*')
                 && operations.len() == 2
