@@ -37,11 +37,9 @@ pub fn provider_catalog_is_read_only() -> bool {
             .all(|(index, (provider, operations))| {
                 !provider.is_empty()
                     && provider.len() <= 64
-                    && provider
-                        .bytes()
-                        .all(|byte| {
-                            byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'_'
-                        })
+                    && provider.bytes().all(|byte| {
+                        byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'_'
+                    })
                     && !PROVIDER_OPERATIONS[..index]
                         .iter()
                         .any(|(name, _)| name == provider)
@@ -52,9 +50,11 @@ pub fn provider_catalog_is_read_only() -> bool {
                         .all(|(operation_index, operation)| {
                             operation.starts_with("read_")
                                 && operation.len() <= 64
-                                && operation
-                                    .bytes()
-                                    .all(|byte| byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'_')
+                                && operation.bytes().all(|byte| {
+                                    byte.is_ascii_lowercase()
+                                        || byte.is_ascii_digit()
+                                        || byte == b'_'
+                                })
                                 && !operations[..operation_index].contains(operation)
                         })
             })
